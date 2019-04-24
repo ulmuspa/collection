@@ -10,7 +10,7 @@
 
 namespace Ulmuspa;
 
-use ArrayInterator;
+use ArrayIterator;
 
 /**
  * Collection is a container for key/value pairs.
@@ -174,12 +174,12 @@ class Collection implements CollectionInterface
      *
      * @access public 
      * @param  void 
-     * @return ArrayInterator 
+     * @return ArrayIterator
      */
 
     public function getIterator()
     {
-        return new ArrayInterator($this->items); 
+        return new ArrayIterator($this->items); 
     }
 
     /**
