@@ -52,7 +52,7 @@ class Collection implements CollectionInterface
 
     public function set($key, $value)
     {
-        $this->items[$key] = $value; 
+        $this->items[$key] = $value instanceof CollectionInterface ? $value->all() : $value; 
     }
 
     /**
@@ -115,13 +115,18 @@ class Collection implements CollectionInterface
      * Adds items 
      *
      * @access public 
-     * @param  array  $items 
+     * @param  mixed $items 
      * @return void 
      */
 
-    public function add(array $items = [])
+    public function add($items = null) 
     {
-        $this->items = array_replace($this->items, $items); 
+	if($items instanceof CollectionInterface){
+        	$this->items = array_replace($this->items, $items->all()); 
+
+ 	}elseif(is_array($items)){
+        	$this->items = array_replace($this->items, $items); 
+	}
     }
 
     /**

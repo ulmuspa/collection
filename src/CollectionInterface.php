@@ -18,7 +18,7 @@ interface CollectionInterface extends \ArrayAccess, \Countable, \IteratorAggrega
 
     public function replace(array $parameters = array());
 
-    public function add(array $parameters = array());
+    public function add($parameters = null);
 
     public function all();
 
